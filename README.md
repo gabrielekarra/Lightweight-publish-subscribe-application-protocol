@@ -1,13 +1,13 @@
 # Lightweight-publish-subscribe-application-protocol
 Design and implement in TinyOS a lightweight publishsubscribe application protocol similar to MQTT and test it with simulations on a star-shaped network topology composed of 8 client nodes connected to a PAN coordinator. The PAN coordinator acts as an MQTT broker. 
 
-#Connection
+# Connection
 Upon activation, each node sends a CONNECT message
 to the PAN coordinator. The PAN coordinator replies with a CONNACK message. If the PAN coordinator receives messages from not
 yet connected nodes, such messages are ignored. Be sure to handle retransmissions if msgs get lost (retransmission if CONN or CONNACK
 is lost).
 
-#Subscribe 
+# Subscribe 
 After connection, each node can subscribe to one among
 these three topics: TEMPERATURE, HUMIDITY, LUMINOSITY. In
 order to subscribe, a node sends a SUBSCRIBE message to the PAN
@@ -17,14 +17,14 @@ subscriptions. The subscribe message is acknowledged by the PANC
 with a SUBACK message. (handle retransmission if SUB or SUBACK
 is lost)
 
-#Publish 
+# Publish 
 Each node can publish data on at most one of the three aforementioned topics. The publication is performed through a PUBLISH
 message with the following fields: topic name, payload (assume that
 always QoS=0). When a node publishes a message on a topic, this is
 received by the PAN and forwarded to all nodes that have subscribed
 to a particular topic.
 
-#Node Red Chart
+# Node Red Chart
 The PAN Coordinator (Broker node) is connected to NodeRED, and periodically transmit data received on the topics to Thingspeak through MQTT. 
 Thingspeak show one chart for each topic on a public channel.
 
