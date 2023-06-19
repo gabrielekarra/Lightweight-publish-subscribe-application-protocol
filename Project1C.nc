@@ -268,7 +268,7 @@ implementation
    			msg -> sender = TOS_NODE_ID;
 			call AMSend.send(msg->dest, &packet, sizeof(msg_t));
     	}
-    	if ((indexSubReceived[TOS_NODE_ID-2] == 0 || indexSubAckReceived[TOS_NODE_ID-2] == 0)  && TOS_NODE_ID != 1) 
+    	if ((indexSubReceived[TOS_NODE_ID-2] == 0 || indexSubAckReceived[TOS_NODE_ID-2] == 0)  && TOS_NODE_ID != 1 && indexConnAckReceived[TOS_NODE_ID-2] != 0) 
   		{	
   			// If i'm not the PAN and i don't have received the SUBBACK or my SUB message did not arrived to the PAN i resend it (QoS 1)
 			dbg("radio_send", "PACKET LOST...send AGAIN SUB to PAN coordinator\n");	
