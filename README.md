@@ -28,3 +28,25 @@ to a particular topic.
 The PAN Coordinator (Broker node) is connected to NodeRED, and periodically transmit data received on the topics to Thingspeak through MQTT. 
 Thingspeak show one chart for each topic on a public channel.
 
+## Tools used
+- TinyOS 
+  - nesC
+- Tossim
+  - Python
+- Node-RED
+- ThingSpeak
+
+## How to run
+1. Open the terminal
+2. Start Node-RED launching `node-red` command or install it if you do not have it
+3. Open you browser and go to `localhost:1880`
+4. Import the flow on Node-RED from `Node-RED_flow.pdf`
+5. Open [our ThingSpeak public channel](https://thingspeak.com/channels/2185815) where you can see the charts
+6. Open another terminal window
+7. Move to `src/`
+8. Launch this command `make micaz sim`
+9. Once the compile procedure is done, launch `RunSimulationScript.py`
+
+## Credits
+Developed by Davide Giannubilo & Salvatore Gabriele Karra | June 2023
+
